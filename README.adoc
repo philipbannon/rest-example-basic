@@ -1,0 +1,56 @@
+Hi,
+
+This example code will get you up and running with a very basic RESTFul web service using Spring and Tomcat.
+
+
+== What you'll build
+
+Using Spring boot strap you'll build a RESTFul service that accepts HTTP GET requests which will return a users ID, Name and location.
+
+Once the code is built you'll be given a deployable war file which can be used in most containers such as Tomcat and also a standalone jar file
+which you uses the Spring standalone server....just remember you can only use one of these at a time as they both use port 8080
+
+----
+http://localhost:8080/example/welcome?Username=Phil&userLocation=Dublin
+----
+
+and respond with a representation of a user:
+
+[source,json]
+----
+{"userId":1,"content":"Hello phil, I see you are from Dublin","location":"Dublin"}
+----
+
+By specifying the userName Param of the URL and the userLoaction Param the out putted JSON response will change
+
+----
+http://localhost:8080/example/welcome?userName=Joe&userLocation=London
+----
+
+The `userName` parameter value overrides the default value of "New User" and is reflected in the response:
+
+[source,json]
+----
+{"id":1,"content":"Hello New User, I see you are from Dublin","location":"Dublin"}
+----
+
+
+== What you'll need
+
+- java_version: 1.8
+- Gradle installed
+- Any IDE (I use Intellij)
+
+[[initial]]
+== Create a resource representation class
+
+-- TODO Finish README
+
+
+== Summary
+
+Congratulations! You've just developed a RESTful web service with Spring. 
+
+
+
+

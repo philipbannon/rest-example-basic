@@ -14,7 +14,8 @@ public class WelcomeController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/welcome")
-    public Welcome greeting(@RequestParam(value="userName", defaultValue="New User") String userName, @RequestParam(value="userLocation") String userLocation) {
+    public Welcome greeting(@RequestParam(value="userName", defaultValue="New User")
+                                String userName, @RequestParam(value="userLocation") String userLocation) {
         return new Welcome(counter.incrementAndGet(), String.format(welcomeTemplate, userName).concat(String.format(locationTemplate, userLocation)), userLocation);
     }
 }

@@ -1,9 +1,7 @@
 package test;
 
 import java.util.concurrent.atomic.AtomicLong;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class WelcomeController {
@@ -14,8 +12,8 @@ public class WelcomeController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/welcome")
-    public Welcome greeting(@RequestParam(value="userName", defaultValue="New User")
-                                String userName, @RequestParam(value="userLocation") String userLocation) {
+    public Welcome welcome(@RequestParam(value="userName", defaultValue="New User") String userName,
+                           @RequestParam(value="userLocation") String userLocation) {
         return new Welcome(counter.incrementAndGet(), String.format(welcomeTemplate, userName).concat(String.format(locationTemplate, userLocation)), userLocation);
     }
 }
